@@ -54,7 +54,7 @@ msgstr "Sprzedawca"
 
 #: pdf.py:199
 msgid "Payment information"
-msgstr "Sposób płatności"
+msgstr "Sposób płatności   przelew"
 
 #: pdf.py:204
 msgid "Account n."
