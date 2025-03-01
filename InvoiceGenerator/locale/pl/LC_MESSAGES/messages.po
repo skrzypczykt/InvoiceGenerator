@@ -54,7 +54,7 @@ msgstr "Sprzedawca"
 
 #: pdf.py:199
 msgid "Payment information"
-msgstr "Sposób płatności   przelew"
+msgstr "Płatność przelewem"
 
 #: pdf.py:204
 msgid "Account n."
@@ -62,7 +62,7 @@ msgstr "Numer konta"
 
 #: pdf.py:205
 msgid "Variable symbol"
-msgstr "Símbolo variável"
+msgstr "Płatność przelewem"
 
 #: pdf.py:209
 msgid "Specific symbol"
