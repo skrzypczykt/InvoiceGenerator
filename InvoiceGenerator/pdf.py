@@ -231,7 +231,7 @@ class SimpleInvoice(BaseInvoice):
 
         if address.logo_file:
             height = 30.0
-            width = float(self.invoice.provider.logo_file.size[0]) / (float(self.invoice.provider.logo_file.size[1])/height)
+            width = 30.0
             self.pdf.drawImage(self.invoice.provider.logo_file, (left + 84) * mm - width, (top - 4) * mm, width, height, mask="auto")
 
     def _drawClient(self, TOP, LEFT):
