@@ -155,7 +155,7 @@ class SimpleInvoice(BaseInvoice):
         url = "https://github.com/skrzypczykt/InvoiceGenerator/blob/master/InvoiceGenerator/logo.png"
         logo = Image.open("logo.png").resize((64, 64))
         from reportlab.lib.utils import ImageReader
-        self.pdf.drawImage(ImageReader(logo), (self.LEFT + 10) * mm, (self.TOP) * mm, mask='auto')
+        self.pdf.drawImage(ImageReader(logo), (self.LEFT + 25) * mm, (self.TOP - 5) * mm, mask='auto')
 
         # self.pdf.setFillColorRGB(0, 0, 0)
 
