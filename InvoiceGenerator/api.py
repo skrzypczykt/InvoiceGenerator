@@ -76,6 +76,7 @@ class Address(UnicodeProperty):
 
     def _get_address_lines(self):
         address_line = [self.summary]
+        address_line.append(self.email)
         if self.division:
             address_line.append(self.division)
         address_line += [
@@ -95,7 +96,6 @@ class Address(UnicodeProperty):
     def _get_contact_lines(self):
         return [
             self.phone,
-            self.email,
             ]
 
 
