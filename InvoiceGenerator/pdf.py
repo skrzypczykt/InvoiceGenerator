@@ -229,7 +229,7 @@ class SimpleInvoice(BaseInvoice):
         story_inframe = KeepInFrame(width*mm, height*mm, story)
         frame.addFromList([story_inframe], self.pdf)
 
-        if address.logo_file:
+        if hasattr(address, "logo_file") and address.logo_file:
             height = 30.0
             width = 30.0
             self.pdf.drawImage(self.invoice.provider.logo_file, (left + 84) * mm - width, (top - 4) * mm, width, height, mask="auto")
