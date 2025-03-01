@@ -152,7 +152,7 @@ class SimpleInvoice(BaseInvoice):
         self._drawQR(self.TOP - 39.4, self.LEFT + 61, 75.0)
         self._drawDates(self.TOP - 10, self.LEFT + 91)
         self._drawItems(self.TOP - 80, self.LEFT)
-        url = "https://github.com/skrzypczykt/InvoiceGenerator/blob/master/InvoiceGenerator/logo.png"
+        url = "https://https://raw.githubusercontent.com/skrzypczykt/InvoiceGenerator/master/InvoiceGenerator/logo.png"
         response = requests.get(url)
         logo = Image.open(response.raw).resize((64, 64))
 
