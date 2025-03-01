@@ -12,7 +12,7 @@ from InvoiceGenerator.conf import FONT_BOLD_PATH, FONT_PATH
 from InvoiceGenerator.conf import LANGUAGE, get_gettext
 
 from PIL import Image
-
+from reportlab.lib.utils import ImageReader
 from babel.dates import format_date
 from babel.numbers import format_currency
 
@@ -153,8 +153,9 @@ class SimpleInvoice(BaseInvoice):
         self._drawDates(self.TOP - 10, self.LEFT + 91)
         self._drawItems(self.TOP - 80, self.LEFT)
         url = "https://github.com/skrzypczykt/InvoiceGenerator/blob/master/InvoiceGenerator/logo.png"
-        logo = Image.open("logo.png").resize((64, 64))
-        from reportlab.lib.utils import ImageReader
+        response = requests.get(url)
+        logo = Image.open(response.raw).resize((64, 64))
+
         self.pdf.drawImage(ImageReader(logo), (self.LEFT + 25) * mm, (self.TOP - 5) * mm, mask='auto')
 
         # self.pdf.setFillColorRGB(0, 0, 0)
