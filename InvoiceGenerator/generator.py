@@ -5,6 +5,7 @@ import datetime
 import os
 from tempfile import NamedTemporaryFile
 
+import reportlab
 from reportlab.lib.pagesizes import letter
 from reportlab.lib.units import mm
 from reportlab.pdfbase import pdfmetrics
@@ -197,8 +198,13 @@ class Invoice:
 
     def drawProvider(self, TOP, LEFT):
         self._drawAddress(TOP, LEFT, "Dodavatel", self.provider)
+        reportlab.platypus.Image('logo.png', width=64, height=64).drawOn(
+            self.pdf,
+            (LEFT + 2) * mm, (TOP - 26) * mm)
         if self.provider.note:
-            self.pdf.drawString((LEFT + 2) * mm, (TOP - 26) * mm, self.provider.note)
+            self.pdf.drawString((LEFT + 2) * mm + 64, (TOP - 26) * mm + 64, self.provider.note)
+
+
 
     def drawPayment(self, TOP, LEFT):
         self.pdf.setFont("DejaVu", 11)

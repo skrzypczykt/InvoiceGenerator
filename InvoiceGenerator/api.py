@@ -219,7 +219,7 @@ class Invoice(UnicodeProperty):
     :type provider: Provider
     """
     #: title on the invoice
-    title = ""
+    title = "Faktura"
     #: variable symbol associated with the payment
     variable_symbol = None
     #: specific_symbol
