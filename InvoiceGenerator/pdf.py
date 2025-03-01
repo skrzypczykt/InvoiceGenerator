@@ -146,12 +146,12 @@ class SimpleInvoice(BaseInvoice):
         # Texty
         self._drawMain()
         self._drawTitle()
-        self._drawProvider(self.TOP - 10, self.LEFT + 3)
-        self._drawClient(self.TOP - 39, self.LEFT + 91)
-        self._drawPayment(self.TOP - 47, self.LEFT + 3)
-        self._drawQR(self.TOP - 39.4, self.LEFT + 61, 75.0)
-        self._drawDates(self.TOP - 10, self.LEFT + 91)
-        self._drawItems(self.TOP - 80, self.LEFT)
+        self._drawProvider(self.TOP - 20, self.LEFT + 3)
+        self._drawClient(self.TOP - 49, self.LEFT + 91)
+        self._drawPayment(self.TOP - 57, self.LEFT + 3)
+        self._drawQR(self.TOP - 49.4, self.LEFT + 61, 75.0)
+        self._drawDates(self.TOP - 20, self.LEFT + 91)
+        self._drawItems(self.TOP - 90, self.LEFT)
         url = "https://raw.githubusercontent.com/skrzypczykt/InvoiceGenerator/master/InvoiceGenerator/logo.png"
         response = requests.get(url, stream=True)
         logo = Image.open(io.BytesIO(response.content)).resize((60, 60))
