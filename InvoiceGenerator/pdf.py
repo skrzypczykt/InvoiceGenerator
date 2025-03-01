@@ -153,8 +153,6 @@ class SimpleInvoice(BaseInvoice):
         self._drawDates(self.TOP - 20, self.LEFT + 91)
         self._drawItems(self.TOP - 90, self.LEFT)
 
-        self.pdf.drawImage(ImageReader(logo), (self.LEFT + 40) * mm, (self.TOP - 5) * mm, mask='auto')
-
         # self.pdf.setFillColorRGB(0, 0, 0)
 
         self.pdf.showPage()
