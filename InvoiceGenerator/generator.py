@@ -278,10 +278,6 @@ Variabilní symbol: %s"""
             (LEFT + 112) * mm, (TOP - i - 75) * mm, "Vystavil: %s" % self.creator
         )
 
-        logo = Image.open('logo.png').resize((64, 64))
-        assert False
-        self.pdf.drawImage(logo, (LEFT + 10) * mm, (TOP - i - 75) * mm, mask='auto')
-
     def drawDates(self, TOP, LEFT):
         today = datetime.datetime.today()
         payback = today + datetime.timedelta(self.payment_days)
