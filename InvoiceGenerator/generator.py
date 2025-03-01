@@ -141,7 +141,9 @@ class Invoice:
     #############################################################
 
     def drawMain(self):
-        # Horní lajna
+        logo = Image.open('logo.png').resize((64, 64))
+        self.pdf.drawImage(logo, self.LEFT * mm, self.TOP * mm, mask='auto')
+
         self.pdf.drawString(self.LEFT * mm, self.TOP * mm, self.title)
         self.pdf.drawString(
             (self.LEFT + 100) * mm, self.TOP * mm, "Variabilní symbol: %s" % self.vs
@@ -198,8 +200,6 @@ class Invoice:
 
     def drawProvider(self, TOP, LEFT):
         self._drawAddress(TOP, LEFT, "Dodavatel", self.provider)
-        logo = Image.open('logo.png').resize((64, 64))
-        self.pdf.drawImage(logo, (LEFT + 2) * mm, (TOP - 26) * mm, mask='auto')
         if self.provider.note:
             self.pdf.drawString((LEFT + 2) * mm + 64, (TOP - 26) * mm + 64, self.provider.note)
 
