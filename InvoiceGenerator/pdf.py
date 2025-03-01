@@ -229,11 +229,10 @@ class SimpleInvoice(BaseInvoice):
         story_inframe = KeepInFrame(width*mm, height*mm, story)
         frame.addFromList([story_inframe], self.pdf)
 
-        if address.logo_filename:
-            im = Image.open(address.logo_filename)
+        if address.logo_file:
             height = 30.0
-            width = float(im.size[0]) / (float(im.size[1])/height)
-            self.pdf.drawImage(self.invoice.provider.logo_filename, (left + 84) * mm - width, (top - 4) * mm, width, height, mask="auto")
+            width = float(self.invoice.provider.logo_file.size[0]) / (float(self.invoice.provider.logo_file.size[1])/height)
+            self.pdf.drawImage(self.invoice.provider.logo_file, (left + 84) * mm - width, (top - 4) * mm, width, height, mask="auto")
 
     def _drawClient(self, TOP, LEFT):
         self._drawAddress(TOP, LEFT, 88, 41, _(u'Customer'), self.invoice.client)
