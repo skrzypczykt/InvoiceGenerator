@@ -42,7 +42,7 @@ msgstr "Strona %(page_number)d z %(page_count)d"
 #: pdf.py:129
 #, python-format
 msgid "Invoice num.: %s"
-msgstr "Fatura numer.: %s"
+msgstr "Faktura numer.: %s"
 
 #: pdf.py:154
 msgid "Customer"
