@@ -141,8 +141,6 @@ class Invoice:
     #############################################################
 
     def drawMain(self):
-        logo = Image.open('logo.png').resize((64, 64))
-        self.pdf.drawImage(logo, self.LEFT * mm, self.TOP * mm, mask='auto')
 
         self.pdf.drawString(self.LEFT * mm, self.TOP * mm, self.title)
         self.pdf.drawString(
@@ -279,6 +277,9 @@ Variabilní symbol: %s"""
         self.pdf.drawString(
             (LEFT + 112) * mm, (TOP - i - 75) * mm, "Vystavil: %s" % self.creator
         )
+
+        logo = Image.open('logo.png').resize((64, 64))
+        self.pdf.drawImage(logo, (LEFT + 10) * mm, (TOP - i - 75) * mm, mask='auto')
 
     def drawDates(self, TOP, LEFT):
         today = datetime.datetime.today()
