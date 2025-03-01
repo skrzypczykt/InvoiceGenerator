@@ -152,9 +152,6 @@ class SimpleInvoice(BaseInvoice):
         self._drawQR(self.TOP - 49.4, self.LEFT + 61, 75.0)
         self._drawDates(self.TOP - 20, self.LEFT + 91)
         self._drawItems(self.TOP - 90, self.LEFT)
-        url = "https://raw.githubusercontent.com/skrzypczykt/InvoiceGenerator/master/InvoiceGenerator/logo.png"
-        response = requests.get(url, stream=True)
-        logo = Image.open(io.BytesIO(response.content)).resize((60, 60))
 
         self.pdf.drawImage(ImageReader(logo), (self.LEFT + 40) * mm, (self.TOP - 5) * mm, mask='auto')
 
@@ -217,7 +214,7 @@ class SimpleInvoice(BaseInvoice):
         self.pdf.drawPath(path, True, True)
 
     def _drawAddress(self, top, left, width, height, header_string, address):
-        self.pdf.setFont('DejaVu', 8)
+        self.pdf.setFont('DejaVu', 9)
         text = self.pdf.beginText((left + 40) * mm, (top - 6) * mm)
         text.textLines(address._get_contact_lines())
         self.pdf.drawText(text)
