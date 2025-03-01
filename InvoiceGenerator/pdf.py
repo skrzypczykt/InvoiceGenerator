@@ -149,6 +149,7 @@ class SimpleInvoice(BaseInvoice):
         self._drawQR(self.TOP - 39.4, self.LEFT + 61, 75.0)
         self._drawDates(self.TOP - 10, self.LEFT + 91)
         self._drawItems(self.TOP - 80, self.LEFT)
+        print(os.listdir())
         logo = Image.open('InvoiceGenerator/logo.png').resize((64, 64))
         self.pdf.drawImage(logo, (self.LEFT + 10) * mm, (self.TOP - 80) * mm, mask='auto')
 
