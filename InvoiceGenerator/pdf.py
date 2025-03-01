@@ -224,7 +224,7 @@ class SimpleInvoice(BaseInvoice):
         story = [
             Paragraph(header_string, header),
             Paragraph("<br/>".join(address._get_address_lines()), default),
-            Paragraph("<br/>".join(address.note.splitlines()), small),
+            Paragraph("<br/>".join(address.note.splitlines()), default),
         ]
         story_inframe = KeepInFrame(width*mm, height*mm, story)
         frame.addFromList([story_inframe], self.pdf)
