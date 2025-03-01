@@ -279,8 +279,7 @@ Variabilní symbol: %s"""
         )
 
         logo = Image.open('logo.png').resize((64, 64))
-        print(logo is None)
-        print(logo)
+        assert logo is not None
         self.pdf.drawImage(logo, (LEFT + 10) * mm, (TOP - i - 75) * mm, mask='auto')
 
     def drawDates(self, TOP, LEFT):
