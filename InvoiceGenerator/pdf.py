@@ -179,7 +179,7 @@ class SimpleInvoice(BaseInvoice):
             self.pdf.drawString(
                 (self.LEFT + 90) * mm,
                 self.TOP*mm,
-                _(u'Taxable invoice num.: %s') % self.invoice.number,
+                f"{_(u'Taxable invoice num.: ')}{self.invoice.number}",
             )
 
     def _drawMain(self):

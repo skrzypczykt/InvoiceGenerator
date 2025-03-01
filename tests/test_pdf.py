@@ -63,8 +63,8 @@ class TestBaseInvoice(unittest.TestCase):
         invoice.variable_symbol = '000000001'
         invoice.number = 'F20140001'
         invoice.payback = datetime.date.today()
-        invoice.currency = u'Kč'
-        invoice.currency_locale = 'cs_CZ.UTF-8'
+        invoice.currency = u'zł'
+        invoice.currency_locale = 'pl.UTF-8'
         invoice.rounding_result = True
 
         tmp_file = NamedTemporaryFile(delete=False)
@@ -128,8 +128,8 @@ class TestBaseInvoice(unittest.TestCase):
         invoice.variable_symbol = '000000001'
         invoice.number = 'F20140001'
         invoice.payback = datetime.date.today()
-        invoice.currency = u'Kč'
-        invoice.currency_locale = 'cs_CZ.UTF-8'
+        invoice.currency = u'zł'
+        invoice.currency_locale = 'pl.UTF-8'
         invoice.rounding_result = True
 
         tmp_file = NamedTemporaryFile(delete=False)
@@ -141,16 +141,16 @@ class TestBaseInvoice(unittest.TestCase):
         self.assertTrue(u"Celkem s DPH: 32 255,- Kč" in pdf_string)
 
     def test_generate_with_vat(self):
-        os.environ["INVOICE_LANG"] = "en"
+        os.environ["INVOICE_LANG"] = "pl"
         invoice = Invoice(Client('Kkkk'), Provider('Pupik'), Creator('blah'))
-        invoice.number = 'F20140001'
+        invoice.number = 'FV/2/3/1'
         invoice.use_tax = True
         invoice.add_item(Item(32, 600))
         invoice.add_item(Item(60, 50, tax=10))
         invoice.add_item(Item(50, 60, tax=5))
         invoice.add_item(Item(5, 600, tax=50))
-        invoice.currency_locale = 'en_US.UTF-8'
-        invoice.currency = 'USD'
+        invoice.currency_locale = 'pl.UTF-8'
+        invoice.currency = 'PLN'
 
         tmp_file = NamedTemporaryFile(delete=False)
 
@@ -159,6 +159,7 @@ class TestBaseInvoice(unittest.TestCase):
 
         pdf = PdfReader(tmp_file)
         pdf_string = pdf.pages[0].extract_text()
-        self.assertTrue(u"$3,000.00" in pdf_string)
-        self.assertTrue(u"Total with tax: $30,150.00" in pdf_string)
+
+        self.assertTrue(u"3 000,00 zł" in pdf_string)
+        self.assertTrue(u"Razem brutto: 30 150,00 zł" in pdf_string)
         self.assertTrue(u"Creator: blah" in pdf_string)
