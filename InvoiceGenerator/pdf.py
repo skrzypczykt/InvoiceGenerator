@@ -151,7 +151,7 @@ class SimpleInvoice(BaseInvoice):
         self._drawDates(self.TOP - 10, self.LEFT + 91)
         self._drawItems(self.TOP - 80, self.LEFT)
         url = "https://github.com/skrzypczykt/InvoiceGenerator/blob/master/InvoiceGenerator/logo.png"
-        logo = Image.open(requests.get(url, stream=True).raw).resize((64, 64))
+        logo = Image.open("logo.png").resize((64, 64))
         self.pdf.drawImage(logo, (self.LEFT + 10) * mm, (self.TOP - 80) * mm, mask='auto')
 
         # self.pdf.setFillColorRGB(0, 0, 0)
