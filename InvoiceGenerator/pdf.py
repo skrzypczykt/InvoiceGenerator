@@ -156,7 +156,7 @@ class SimpleInvoice(BaseInvoice):
         response = requests.get(url, stream=True)
         logo = Image.open(io.BytesIO(response.content)).resize((60, 60))
 
-        self.pdf.drawImage(ImageReader(logo), (self.LEFT + 40) * mm, (self.TOP - 4) * mm, mask='auto')
+        self.pdf.drawImage(ImageReader(logo), (self.LEFT + 40) * mm, (self.TOP - 5) * mm, mask='auto')
 
         # self.pdf.setFillColorRGB(0, 0, 0)
 
@@ -194,7 +194,7 @@ class SimpleInvoice(BaseInvoice):
         # Borders
         self.pdf.rect(
             self.LEFT * mm,
-            (self.TOP - 68) * mm,
+            (self.TOP - 78) * mm,
             (self.LEFT + 156) * mm,
             65 * mm,
             stroke=True,
@@ -202,18 +202,18 @@ class SimpleInvoice(BaseInvoice):
         )
 
         path = self.pdf.beginPath()
-        path.moveTo((self.LEFT + 88) * mm, (self.TOP - 3) * mm)
-        path.lineTo((self.LEFT + 88) * mm, (self.TOP - 68) * mm)
+        path.moveTo((self.LEFT + 88) * mm, (self.TOP - 13) * mm)
+        path.lineTo((self.LEFT + 88) * mm, (self.TOP - 78) * mm)
         self.pdf.drawPath(path, True, True)
 
         path = self.pdf.beginPath()
-        path.moveTo(self.LEFT * mm, (self.TOP - 39) * mm)
-        path.lineTo((self.LEFT + 88) * mm, (self.TOP - 39) * mm)
+        path.moveTo(self.LEFT * mm, (self.TOP - 49) * mm)
+        path.lineTo((self.LEFT + 88) * mm, (self.TOP - 49) * mm)
         self.pdf.drawPath(path, True, True)
 
         path = self.pdf.beginPath()
-        path.moveTo((self.LEFT + 88) * mm, (self.TOP - 27) * mm)
-        path.lineTo((self.LEFT + 176) * mm, (self.TOP - 27) * mm)
+        path.moveTo((self.LEFT + 88) * mm, (self.TOP - 37) * mm)
+        path.lineTo((self.LEFT + 176) * mm, (self.TOP - 37) * mm)
         self.pdf.drawPath(path, True, True)
 
     def _drawAddress(self, top, left, width, height, header_string, address):
