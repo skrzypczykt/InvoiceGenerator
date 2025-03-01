@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 import errno
+import io
+
 import requests
 import locale
 import os
@@ -151,8 +153,11 @@ class SimpleInvoice(BaseInvoice):
         self._drawDates(self.TOP - 10, self.LEFT + 91)
         self._drawItems(self.TOP - 80, self.LEFT)
         url = "https://github.com/skrzypczykt/InvoiceGenerator/blob/master/InvoiceGenerator/logo.png"
+
         logo = Image.open("logo.png").resize((64, 64))
-        self.pdf.drawImage(logo, (self.LEFT + 10) * mm, (self.TOP - 80) * mm, mask='auto')
+        img_byte_arr = io.BytesIO()
+        img_byte_arr = img_byte_arr.getvalue()
+        self.pdf.drawImage(img_byte_arr, (self.LEFT + 10) * mm, (self.TOP - 80) * mm, mask='auto')
 
         # self.pdf.setFillColorRGB(0, 0, 0)
 
