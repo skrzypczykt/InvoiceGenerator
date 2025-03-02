@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: 0.5.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-09-22 15:04+0100\n"
-"PO-Revision-Date: 2025-03-01 14:33+0100\n"
+"PO-Revision-Date: 2025-03-02 09:46+0100\n"
 "Last-Translator: rbas <skrzypczykt@gmail.com>\n"
 "Language-Team: \n"
 "Language: pl\n"
@@ -54,7 +54,7 @@ msgstr "Sprzedawca"
 
 #: pdf.py:199
 msgid "Payment information"
-msgstr "Płatność przelewem"
+msgstr "Sposób płatności"
 
 #: pdf.py:204
 msgid "Account n."
