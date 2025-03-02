@@ -123,6 +123,7 @@ class SimpleInvoice(BaseInvoice):
     :type invoice: Invoice
     """
     line_width = 62
+    total_text = ""
 
     def gen(self, filename, generate_qr_code=False):
         """
@@ -470,6 +471,9 @@ class SimpleInvoice(BaseInvoice):
 
         if not items_are_with_tax:
             self.pdf.setFont('DejaVu-Bold', 11)
+            self.pdf.drawString((LEFT) * mm, (TOP - i - 7) * mm,
+                                '%s: %s' % ('Słownie',
+                                            self.invoice.total_text))
             self.pdf.drawString((LEFT + 100) * mm, (TOP - i - 7) * mm,
                                 '%s: %s' % (_(u'Total'),
                                             currency(self.invoice.price,
