@@ -324,7 +324,7 @@ class SimpleInvoice(BaseInvoice):
             self.pdf.drawString(
                 (LEFT + 113) * mm,
                 (TOP - i) * mm,
-                _(u'Unit_name'),
+                'Jm.',
             )
             self.pdf.drawString(
                 (LEFT + 123) * mm,
