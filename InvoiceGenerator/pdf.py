@@ -467,6 +467,14 @@ class SimpleInvoice(BaseInvoice):
 
         self.pdf.drawString((LEFT + 10) * mm, (TOP - 5) * mm - height, '%s: %s' % (_(u'Creator'), self.invoice.creator.name))
 
+        path = self.pdf.beginPath()
+        path.moveTo((LEFT) * mm, (TOP) * mm - height)
+        path.lineTo((LEFT + self.line_width) * mm, (TOP) * mm - height)
+        self.pdf.drawPath(path, True, True)
+
+        self.pdf.drawString((LEFT) * mm, (TOP - 5) * mm - height,
+                            '%s' % (_(u'Customer')))
+
     def _drawQR(self, TOP, LEFT, size=130.0):
         if self.qr_builder:
             qr_filename = self.qr_builder.filename
