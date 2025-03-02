@@ -420,14 +420,14 @@ class SimpleInvoice(BaseInvoice):
             else:
                 if float(int(item.count)) == item.count:
                     self.pdf.drawRightString((LEFT + 110) * mm, (TOP - i) * mm,
-                                             u'%s     %s' % (
+                                             u'%s           %s' % (
                                                  locale.format_string("%i",
                                                                       item.count,
                                                                       grouping=True),
                                                  item.unit))
                 else:
                     self.pdf.drawRightString((LEFT + 110) * mm, (TOP - i) * mm,
-                                             u'%s     %s' % (
+                                             u'%s           %s' % (
                                                  locale.format_string("%.2f",
                                                                       item.count,
                                                                       grouping=True),
