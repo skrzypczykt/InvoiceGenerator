@@ -328,12 +328,12 @@ class SimpleInvoice(BaseInvoice):
                 'Jm.',
             )
             self.pdf.drawString(
-                (LEFT + 123) * mm,
+                (LEFT + 128) * mm,
                 (TOP - i) * mm,
                 _(u'Price per one'),
             )
             self.pdf.drawString(
-                (LEFT + 150) * mm,
+                (LEFT + 155) * mm,
                 (TOP - i) * mm,
                 _(u'Total price'),
             )
@@ -424,7 +424,7 @@ class SimpleInvoice(BaseInvoice):
                                                  locale.format_string("%i",
                                                                       item.count,
                                                                       grouping=True)))
-                    self.pdf.drawRightString((LEFT + 115) * mm, (TOP - i) * mm,
+                    self.pdf.drawRightString((LEFT + 118) * mm, (TOP - i) * mm,
                                              u'%s' % (
 
                                                  item.unit))
@@ -434,7 +434,7 @@ class SimpleInvoice(BaseInvoice):
                                                  locale.format_string("%.2f",
                                                                       item.count,
                                                                       grouping=True)))
-                    self.pdf.drawRightString((LEFT + 115) * mm, (TOP - i) * mm,
+                    self.pdf.drawRightString((LEFT + 118) * mm, (TOP - i) * mm,
                                              u'%s' % (
                                                  item.unit))
                 self.pdf.drawRightString((LEFT + 148) * mm, (TOP - i) * mm,
