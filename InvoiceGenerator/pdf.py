@@ -472,7 +472,7 @@ class SimpleInvoice(BaseInvoice):
         path.lineTo((20 + self.line_width) * mm, (TOP) * mm - height)
         self.pdf.drawPath(path, True, True)
 
-        self.pdf.drawString((20) * mm, (TOP - 5) * mm - height,
+        self.pdf.drawString((30) * mm, (TOP - 5) * mm - height,
                             '%s' % (_(u'Customer')))
 
     def _drawQR(self, TOP, LEFT, size=130.0):
