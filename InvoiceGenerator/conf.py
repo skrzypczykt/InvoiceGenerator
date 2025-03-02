@@ -4,7 +4,7 @@ import sys
 
 PROJECT_ROOT = os.path.dirname(os.path.abspath(os.path.join(__file__)))
 
-LANGUAGE = 'cs'
+LANGUAGE = 'pl'
 
 
 def get_gettext(lang):
