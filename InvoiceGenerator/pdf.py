@@ -419,15 +419,15 @@ class SimpleInvoice(BaseInvoice):
                 i += 5
             else:
                 if float(int(item.count)) == item.count:
-                    self.pdf.drawRightString((LEFT + 118) * mm, (TOP - i) * mm,
-                                             u'%s %s' % (
+                    self.pdf.drawRightString((LEFT + 110) * mm, (TOP - i) * mm,
+                                             u'%s     %s' % (
                                                  locale.format_string("%i",
                                                                       item.count,
                                                                       grouping=True),
                                                  item.unit))
                 else:
-                    self.pdf.drawRightString((LEFT + 118) * mm, (TOP - i) * mm,
-                                             u'%s %s' % (
+                    self.pdf.drawRightString((LEFT + 110) * mm, (TOP - i) * mm,
+                                             u'%s     %s' % (
                                                  locale.format_string("%.2f",
                                                                       item.count,
                                                                       grouping=True),
@@ -472,7 +472,7 @@ class SimpleInvoice(BaseInvoice):
         if not items_are_with_tax:
             self.pdf.setFont('DejaVu-Bold', 11)
             self.pdf.drawString((LEFT) * mm, (TOP - i - 7) * mm,
-                                '%s: %s: %s: %s' % ('Słownie',
+                                '%s: %s %s: %s' % ('Słownie',
                                             self.invoice.total_text, _(u'Total'),
                                             currency(self.invoice.price,
                                                      self.invoice.currency,
