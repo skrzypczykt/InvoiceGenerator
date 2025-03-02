@@ -472,13 +472,12 @@ class SimpleInvoice(BaseInvoice):
         if not items_are_with_tax:
             self.pdf.setFont('DejaVu-Bold', 11)
             self.pdf.drawString((LEFT) * mm, (TOP - i - 7) * mm,
-                                '%s: %s' % ('Słownie',
-                                            self.invoice.total_text))
-            self.pdf.drawString((LEFT + 100) * mm, (TOP - i - 7) * mm,
-                                '%s: %s' % (_(u'Total'),
+                                '%s: %s: %s: %s' % ('Słownie',
+                                            self.invoice.total_text, _(u'Total'),
                                             currency(self.invoice.price,
                                                      self.invoice.currency,
                                                      self.invoice.currency_locale)))
+
         else:
             self.pdf.setFont('DejaVu-Bold', 6)
             self.pdf.drawString((LEFT + 1) * mm, (TOP - i - 2) * mm,
