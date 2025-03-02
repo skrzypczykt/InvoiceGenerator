@@ -419,22 +419,22 @@ class SimpleInvoice(BaseInvoice):
                 i += 5
             else:
                 if float(int(item.count)) == item.count:
-                    self.pdf.drawRightString((LEFT + 110) * mm, (TOP - i) * mm,
+                    self.pdf.drawRightString((LEFT + 85) * mm, (TOP - i) * mm,
                                              u'%s' % (
                                                  locale.format_string("%i",
                                                                       item.count,
                                                                       grouping=True)))
-                    self.pdf.drawRightString((LEFT + 134) * mm, (TOP - i) * mm,
+                    self.pdf.drawRightString((LEFT + 130) * mm, (TOP - i) * mm,
                                              u'%s' % (
 
                                                  item.unit))
                 else:
-                    self.pdf.drawRightString((LEFT + 134) * mm, (TOP - i) * mm,
+                    self.pdf.drawRightString((LEFT + 85) * mm, (TOP - i) * mm,
                                              u'%s' % (
                                                  locale.format_string("%.2f",
                                                                       item.count,
                                                                       grouping=True)))
-                    self.pdf.drawRightString((LEFT + 110) * mm, (TOP - i) * mm,
+                    self.pdf.drawRightString((LEFT + 130) * mm, (TOP - i) * mm,
                                              u'%s' % (
                                                  item.unit))
                 self.pdf.drawRightString((LEFT + 148) * mm, (TOP - i) * mm,
